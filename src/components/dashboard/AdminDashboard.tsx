@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import EquipmentManagement from "@/components/admin/EquipmentManagement";
 import RequestManagement from "@/components/admin/RequestManagement";
 import ReportsView from "@/components/admin/ReportsView";
+import UserManagement from "@/components/admin/UserManagement";
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
@@ -83,9 +84,10 @@ const AdminDashboard = () => {
 
       {/* Admin Tabs */}
       <Tabs defaultValue="equipment" className="space-y-4">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="equipment">Equipment</TabsTrigger>
           <TabsTrigger value="requests">Requests</TabsTrigger>
+          <TabsTrigger value="users">Users</TabsTrigger>
           <TabsTrigger value="reports">Reports</TabsTrigger>
         </TabsList>
 
@@ -95,6 +97,10 @@ const AdminDashboard = () => {
 
         <TabsContent value="requests">
           <RequestManagement onUpdate={fetchStats} />
+        </TabsContent>
+
+        <TabsContent value="users">
+          <UserManagement />
         </TabsContent>
 
         <TabsContent value="reports">
