@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Store {
+public static void main(String[] args) {
+HashMap<String, Double> store = new HashMap<>();
+store.put("Хляб", 1.20);
+store.put("Мляко", 2.10);
+
+    Scanner s = new Scanner(System.in);
+
+while (true) {
+ System.out.println("1. Показване\n2. Добавяне\n3. Търсене\n4. Изход");
+int c = s.nextInt(); s.nextLine();
+
+if (c == 1) {
+  for (String name : store.keySet())
+                System.out.println(name + ": " + store.get(name));
+        }
+        else if (c == 2) {
+            System.out.print("Продукт: ");
+            String n = s.nextLine();
+            System.out.print("Цена: ");
+double p = s.nextDouble(); s.nextLine();
+store.put(n, p);
+}
+else if (c == 3) {
+System.out.print("Търси: ");
+String n = s.nextLine();
+System.out.println(store.getOrDefault(n));
+}
+else if (c == 4) break;
+}
+}
+}
+Магазинът е направен с HashMap, където се пазят продукти и техните цени. Менюто позволява да показваш всички продукти, да добавяш нов продукт, да търсиш цена по име или да излезеш от програмата. HashMap работи като малък списък „име (следователно )цена“, който позволява бързо търсене и добавяне.
